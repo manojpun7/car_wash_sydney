@@ -2,15 +2,11 @@
 
 import React, { useState } from 'react';
 
-// Define the core blue color based on the image for consistency
+// Define the core blue color
 const PRIMARY_BLUE = '#0c55a6';
 
-/**
- * A form component for requesting a quote from a moving service.
- * It uses React's useState for form data management and is styled with Tailwind CSS.
- */
 const RequestQuoteForm: React.FC = () => {
-    // State to hold the form input values
+    // Form state
     const [formData, setFormData] = useState({
         fullName: "",
         phone: "",
@@ -19,10 +15,10 @@ const RequestQuoteForm: React.FC = () => {
         message: "",
     });
 
-    /**
-     * Handles changes to any form input (text, tel, textarea).
-     * @param e - The change event from the input or textarea element.
-     */
+    // Loading & success state
+    const [isLoading, setIsLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -31,65 +27,68 @@ const RequestQuoteForm: React.FC = () => {
         }));
     };
 
-    /**
-     * Handles the form submission event.
-     * @param e - The form submission event.
-     */
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
-        // Log the data (for development/testing)
-        console.log("Form submitted:", formData);
-      
-        setFormData({
-            fullName: "",
-            phone: "",
-            movingFrom: "",
-            movingTo: "",
-            message: "",
-        });
+        setIsLoading(true);
+        setSuccessMessage("");
+
+        try {
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSuccessMessage("Message sent successfully!");
+                setFormData({
+                    fullName: "",
+                    phone: "",
+                    movingFrom: "",
+                    movingTo: "",
+                    message: "",
+                });
+            } else {
+                const resData = await response.json();
+                setSuccessMessage(`Failed to send message: ${resData.error || "Try again."}`);
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+            setSuccessMessage("Something went wrong. Try again later.");
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
-        // The outer container for styling: white background, rounded corners, shadow, and max width.
-        <div className="bg-white p-6  sm:p-8 rounded-2xl shadow-lg border border-gray-100 max-w-md mx-auto">
-            
-            {/* Form Title */}
+        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-100 max-w-md mx-auto">
             <h3 className="text-2xl font-bold mb-6" style={{ color: PRIMARY_BLUE }}>
                 REQUEST A QUOTE
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
-                
-                {/* Full Name Input */}
-                <div>
-                    <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Full Name"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0c55a6] focus:border-[#0c55a6] text-gray-700 placeholder-gray-500 transition duration-150"
-                        aria-label="Full Name"
-                        required
-                    />
-                </div>
+                <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full Name"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0c55a6] focus:border-[#0c55a6] text-gray-700 placeholder-gray-500 transition duration-150"
+                    aria-label="Full Name"
+                    required
+                />
 
-                {/* Your Phone Input */}
-                <div>
-                    <input
-                        type="tel" // 'tel' is semantically appropriate for phone numbers
-                        name="phone"
-                        placeholder="Your Phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0c55a6] focus:border-[#0c55a6] text-gray-700 placeholder-gray-500 transition duration-150"
-                        aria-label="Your Phone Number"
-                        required
-                    />
-                </div>
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Your Phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0c55a6] focus:border-[#0c55a6] text-gray-700 placeholder-gray-500 transition duration-150"
+                    aria-label="Your Phone Number"
+                    required
+                />
 
-                {/* Moving From / Moving To Inputs (Side-by-side) */}
                 <div className="grid grid-cols-2 gap-4">
                     <input
                         type="text"
@@ -111,27 +110,29 @@ const RequestQuoteForm: React.FC = () => {
                     />
                 </div>
 
-                {/* Message Textarea */}
-                <div>
-                    <textarea
-                        name="message"
-                        placeholder="Message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={6} // Defines the textarea height
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0c55a6] focus:border-[#0c55a6] text-gray-700 placeholder-gray-500 transition duration-150 resize-none" // resize-none prevents user resizing
-                        aria-label="Message"
-                    ></textarea>
-                </div>
+                <textarea
+                    name="message"
+                    placeholder="Message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={6}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0c55a6] focus:border-[#0c55a6] text-gray-700 placeholder-gray-500 transition duration-150 resize-none"
+                    aria-label="Message"
+                ></textarea>
 
-                {/* Submit Button */}
                 <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-lg font-medium rounded-lg shadow-sm text-white transition duration-200 transform hover:scale-[1.01] active:scale-[0.99]"
-                    style={{ backgroundColor: PRIMARY_BLUE }} // Uses the defined primary blue color
+                    disabled={isLoading}
+                    className={`w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-lg font-medium rounded-lg shadow-sm text-white transition duration-200 transform hover:scale-[1.01] active:scale-[0.99] ${isLoading ? "opacity-60 cursor-not-allowed" : ""
+                        }`}
+                    style={{ backgroundColor: PRIMARY_BLUE }}
                 >
-                    Submit
+                    {isLoading ? "Sending..." : "Submit"}
                 </button>
+
+                {successMessage && (
+                    <p className="mt-3 text-center text-green-600 font-medium">{successMessage}</p>
+                )}
             </form>
         </div>
     );

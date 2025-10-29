@@ -5,8 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Truck } from "lucide-react";
 
-
-
 const CashForTruckPage: React.FC = () => {
   return (
     <div className="w-full bg-gray-50">
@@ -16,7 +14,7 @@ const CashForTruckPage: React.FC = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-linear-to-b from-black/50 to-black/30 z-10"></div>
           <Image
-            src="/cash-for-truck.jpg"
+            src="/service/cashTruck.jpg"
             alt="Cash for Truck"
             fill
             className="object-cover z-0"
@@ -54,7 +52,7 @@ const CashForTruckPage: React.FC = () => {
             transition={{ duration: 1.2 }}
           >
             <Image
-              src="/cash-for-truck.jpg"
+              src="/service/cashTruck.jpg"
               alt="Cash for Truck"
               fill
               className="object-cover transform transition-transform duration-500 hover:scale-105"

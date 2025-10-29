@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-[#0c55a6] hover:bg-[#07468f] transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-4xl shadow-sm text-white bg-[#0c55a6] hover:bg-[#07468f] transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
               <Phone size={16} className="mr-2" />
               Contact

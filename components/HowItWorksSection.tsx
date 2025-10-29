@@ -75,14 +75,25 @@ const HowItWorksSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
-          <h3 className="text-sm font-bold uppercase tracking-widest mb-4 relative pb-2 inline-block" style={{ color: DARK_CONTRAST }}>
+          <h3 className="text-md font-semibold uppercase tracking-widest mb-4 relative pb-2 inline-block" style={{ color: DARK_CONTRAST }}>
             HOW IT WORKS
             <span className="absolute left-1/2 transform -translate-x-1/2 bottom-0 w-16 h-0.5 z-10" style={{ backgroundColor: ACCENT_YELLOW }}></span>
           </h3>
 
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight mt-4" style={{ color: HEADING_COLOR }}>
-            SIMPLE,
-            <span className="inline-block px-2 py-1 mx-2 rounded-md" style={{ color: DARK_CONTRAST, backgroundColor: ACCENT_YELLOW }}>FAST</span>
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight mt-4" style={{ color: HEADING_COLOR }}>
+            SIMPLE,{" "}
+            <span className="inline-block relative z-10 text-[#044E9E]">
+              FAST
+
+              <span
+                className="absolute left-0 right-0 -z-10"
+                style={{
+                  backgroundColor: ACCENT_YELLOW,
+                  height: "14px",
+                  bottom: "8px",
+                }}
+              ></span>
+            </span>{" "}
             & STRESS-FREE
           </h2>
         </div>

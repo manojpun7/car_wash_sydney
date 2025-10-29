@@ -98,7 +98,7 @@ const BlogSection: React.FC = () => {
         <div className="text-left mb-12 md:mb-16">
           <div className="flex items-center mb-3">
             <h3
-              className="text-sm font-bold uppercase tracking-widest relative mr-4"
+              className="text-md font-semibold uppercase tracking-widest relative mr-4"
               style={{ color: PRIMARY_BLUE }}
             >
               BLOGS
@@ -106,12 +106,20 @@ const BlogSection: React.FC = () => {
             <div className="w-1/3 h-0.5 bg-gray-300"></div>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight mt-4" style={{ color: HEADING_COLOR }}>
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight mt-4" style={{ color: HEADING_COLOR }}>
             TIPS, INSIGHTS &{" "}
-            <span className="inline-block px-1 rounded-md relative pb-1" style={{ color: HEADING_BLUE }}>
+            <span className="inline-block relative z-10 text-[#044E9E]">
               ADVICE
-              <span className="absolute left-0 bottom-0 w-full h-1" style={{ backgroundColor: ACCENT_YELLOW }}></span>
-            </span>
+
+              <span
+                className="absolute left-0 right-0 -z-10"
+                style={{
+                  backgroundColor: ACCENT_YELLOW,
+                  height: "14px",
+                  bottom: "8px",
+                }}
+              ></span>
+            </span>{" "}
           </h2>
         </div>
 

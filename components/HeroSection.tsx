@@ -55,7 +55,7 @@ const HeroSection: React.FC = () => {
                     {/* CTA Button */}
                     <a
                         href="#get-quote"
-                        className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-lg shadow-lg text-[#0c55a6] bg-[#fdb813] hover:bg-[#e6a200] transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                        className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-4xl shadow-lg text-black bg-[#fdb813] hover:bg-[#e6a200] transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
                         style={{ fontFamily: 'Cabinet Grotesk, sans-serif' }}
                     >
                         <Dot size={24} className="-ml-1" />

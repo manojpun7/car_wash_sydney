@@ -20,7 +20,7 @@ const WhyChooseUsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-2 lg:py-3 relative overflow-hidden mb-10">
+    <section className="bg-white py-16 md:py-2 lg:py-10 relative overflow-hidden mb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-10 gap-12 lg:gap-16 items-center">
           
@@ -53,7 +53,7 @@ const WhyChooseUsSection: React.FC = () => {
             className="lg:col-span-6 lg:pr-8"
           >
             <h3
-              className="text-sm font-bold uppercase tracking-widest mb-3 relative pb-2 inline-block"
+              className="text-md font-semibold uppercase tracking-widest mb-3 relative pb-2 inline-block"
               style={{ color: PRIMARY_BLUE }}
             >
               WHY CHOOSE US
@@ -65,20 +65,21 @@ const WhyChooseUsSection: React.FC = () => {
             </h3>
 
             <h2
-              className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight mt-4 mb-6"
+              className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight mt-4 mb-6"
               style={{ color: HEADING_COLOR }}
             >
               TRUSTED,{" "}
-              <span
-                className="inline-block px-1"
-                style={{
-                  color: PRIMARY_BLUE,
-                  backgroundColor: ACCENT_YELLOW,
-                  borderBottom: `4px solid ${ACCENT_YELLOW}`,
-                }}
-              >
-                FAST
-              </span>{" "}
+             <span className="inline-block relative z-10" style={{ color: PRIMARY_BLUE }}>
+                    FAST
+                    <span
+                      className="absolute left-0 right-0 -z-10"
+                      style={{
+                        backgroundColor: ACCENT_YELLOW,
+                        height: "14px",
+                        bottom: "8px",
+                      }}
+                    ></span>
+                  </span>{" "}
               & HASSLE-
               <br className="hidden sm:inline" />
               FREE

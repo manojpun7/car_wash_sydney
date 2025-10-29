@@ -24,7 +24,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.8 }}
     className={`
-      group/card flex flex-col items-center text-center p-6 rounded-lg shadow-lg 
+      group/card flex flex-col items-center text-center p-6 rounded-4xl 
       ${isHighlighted
         ? 'bg-linear-to-br from-[#fdb813] to-[#ffdb58] text-gray-900'
         : 'bg-transparent text-gray-200'
@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
       transition-all duration-300 ease-in-out
       ${isHighlighted
         ? 'transform scale-105 shadow-xl'
-        : 'hover:bg-[#d1b783] hover:shadow-xl' 
+        : 'hover:bg-[#d1b78380] hover:shadow-xl' // 50% opacity on hover
       }
     `}
   >
@@ -118,12 +118,12 @@ const ServicesSection: React.FC = () => {
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div className="text-center mb-16">
-          <h3 className="text-sm font-bold uppercase tracking-widest mb-3 relative pb-2 inline-block text-gray-300">
+          <h3 className="text-md font-semibold uppercase tracking-widest mb-3 relative pb-2 inline-block text-white">
             SERVICES
             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-16 h-0.5 z-10" style={{ backgroundColor: PRIMARY_BLUE }}></span>
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-600 z-0"></span>
           </h3>
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-white mt-4">
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-white mt-4">
             RELIABLE & QUICK SERVICES
           </h2>
         </div>

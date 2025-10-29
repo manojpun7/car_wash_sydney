@@ -51,7 +51,7 @@ const ClientsSection: React.FC = () => {
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
                 {/* Header based on the Testimonials design style */}
-                <h3 className="text-sm font-bold uppercase tracking-widest mb-3 relative pb-2 inline-block" style={{ color: HEADING_COLOR }}>
+                <h3 className="text-md font-semibold uppercase tracking-widest mb-3 relative pb-2 inline-block" style={{ color: HEADING_COLOR }}>
                     OUR CLIENTS
                     <span className="absolute left-0 bottom-0 w-16 h-0.5 z-10" style={{ backgroundColor: ACCENT_YELLOW }}></span>
                     <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-200 z-0"></span>

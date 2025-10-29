@@ -44,7 +44,7 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section
-      className="py-5 md:py-8 lg:py-10"
+      className="py-5 md:py-8 lg:py-15"
       style={{ backgroundColor: PRIMARY_BLUE, color: TEXT_COLOR }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ const TestimonialsSection: React.FC = () => {
             className="lg:col-span-5"
           >
             <div className="max-w-md">
-              <h3 className="text-sm font-bold uppercase tracking-widest mb-4 relative pb-2 inline-block text-white/80">
+              <h3 className="text-md font-semibold uppercase tracking-widest mb-4 relative pb-2 inline-block text-white/80">
                 TESTIMONIALS
                 <span className="absolute left-0 bottom-0 w-16 h-0.5 z-10 bg-white"></span>
                 <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white/20 z-0"></span>
@@ -70,15 +70,16 @@ const TestimonialsSection: React.FC = () => {
                 style={{ color: HEADING_COLOR }}
               >
                 WHAT OUR{" "}
-                <span
-                  className="inline-block px-1"
-                  style={{
-                    color: PRIMARY_BLUE,
-                    backgroundColor: ACCENT_YELLOW,
-                    borderBottom: `4px solid ${ACCENT_YELLOW}`,
-                  }}
-                >
-                  CLIENT
+                <span className="inline-block relative z-10" style={{ color: ACCENT_YELLOW }}>
+                CLIENT
+                  <span
+                    className="absolute left-0 right-0 -z-10"
+                    style={{
+                      backgroundColor: SECONDARY_BLUE,
+                      height: "14px",
+                      bottom: "8px",
+                    }}
+                  ></span>
                 </span>{" "}
                 SAYS
               </h2>

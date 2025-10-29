@@ -22,9 +22,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   bgColorClass,
   iconColorClass,
 }) => (
-  <div className="flex flex-col items-center p-4 rounded-xl shadow-md border border-gray-100 bg-white min-h-[150px] transition-shadow duration-300 hover:shadow-lg">
+  <div className="flex flex-col items-center p-4 rounded-xl shadow-md border border-gray-100 bg-white min-h-[100px] transition-shadow duration-300 hover:shadow-2xl">
     <div className={`p-4 rounded-xl mb-3 ${bgColorClass} ${iconColorClass} shadow-sm`}>
-      <Icon size={32} />
+      <Icon size={30} />
     </div>
     <p className="text-sm font-semibold text-gray-800 text-center leading-snug">{title}</p>
   </div>
@@ -32,8 +32,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
 const AboutUsSection: React.FC = () => {
   return (
-    <section className="relative bg-white py-20 min-h-[75vh] overflow-visible">
-      
+    <section className="relative bg-white py-15 min-h-[75vh] overflow-visible">
+
       {/* Absolute form for LG/XL - Animated from right when in viewport */}
       <motion.div
         className="absolute top-[-70px] right-6 lg:right-15 z-20 hidden lg:block"
@@ -62,7 +62,7 @@ const AboutUsSection: React.FC = () => {
               {/* Header */}
               <div className="mb-1">
                 <h3
-                  className="text-sm font-extrabold uppercase tracking-widest mb-4 relative pb-2 inline-block"
+                  className="text-md font-semibold uppercase tracking-widest mb-8 relative pb-2 inline-block"
                   style={{ color: PRIMARY_BLUE }}
                 >
                   ABOUT US
@@ -74,7 +74,7 @@ const AboutUsSection: React.FC = () => {
                 </h3>
 
                 <h1
-                  className="text-5xl sm:text-5xl font-bold leading-tight tracking-tight text-center lg:text-left"
+                  className="text-5xl sm:text-5xl font-bold leading-tight tracking-tight text-left lg:text-left"
                   style={{ color: HEADING_COLOR }}
                 >
                   WE HAVE{" "}
@@ -92,14 +92,14 @@ const AboutUsSection: React.FC = () => {
                   OF
                   {" "}
                   <br className="lg:hidden" />
-                  EXPERIENCE IN TOWING
+                  EXPERIENCE IN TOWING {" "}
                   <br className="lg:hidden" />
                   SERVICE.
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-gray-600 text-lg mb-5 text-center lg:text-justify w-full">
+              <p className="text-gray-600 text-lg mb-5 mt-5 text-center lg:text-justify w-full">
                 We’re a Sydney-based, family-run business dedicated to providing reliable,
                 eco-conscious, and fast car removal solutions. With years of experience, Sam and
                 Jay have helped thousands of Sydney residents clear space, earn cash, and recycle
@@ -107,7 +107,7 @@ const AboutUsSection: React.FC = () => {
               </p>
 
               {/* Service Cards */}
-              <div className="grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-5 w-full">
+              <div className="grid grid-cols-3  md:grid-cols-3 sm:grid-cols-1 gap-5 w-full">
                 <ServiceCard
                   title="24/7 Towing Service"
                   icon={Truck}
@@ -138,7 +138,7 @@ const AboutUsSection: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1 }}
           >
-            <div className="w-full md:w-full">
+            <div className="w-full md:w-full ">
               <RequestQuoteForm />
             </div>
           </motion.div>

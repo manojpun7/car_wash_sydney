@@ -48,7 +48,7 @@ const FaqCard: React.FC<FaqCardProps> = ({ faq, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      className="bg-white rounded-lg p-6 lg:p-8 shadow-md hover:shadow-lg transition-shadow duration-300 relative"
+      className="bg-white rounded-4xl p-6 lg:p-8 shadow-md hover:shadow-lg transition-shadow duration-300 relative"
     >
       <div className="flex items-start mb-4">
         <div
@@ -88,7 +88,7 @@ const FaqSection: React.FC = () => {
         <div className="text-left mb-12 md:mb-16">
           <div className="flex items-center mb-4">
             <h3
-              className="text-sm font-semibold uppercase tracking-[0.2em] relative mr-4"
+              className="text-md font-semibold uppercase tracking-[0.2em] relative mr-4"
               style={{ color: PRIMARY_BLUE }}
             >
               FREQUENTLY ASKED QUESTIONS
@@ -97,17 +97,22 @@ const FaqSection: React.FC = () => {
           </div>
 
           <h2
-            className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-tight tracking-tight mt-4"
+            className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-tight tracking-tight mt-4"
             style={{ color: HEADING_COLOR }}
           >
-            GET QUICK
-            <span className="inline-block relative pb-2 ml-2" style={{ color: PRIMARY_BLUE }}>
+            GET QUICK {" "}
+             <span className="inline-block relative z-10 text-[#044E9E]">
               ANSWERS
+
               <span
-                className="absolute left-0 bottom-0 w-full h-3 rounded-sm z-0"
-                style={{ backgroundColor: ACCENT_YELLOW }}
+                className="absolute left-0 right-0 -z-10"
+                style={{
+                  backgroundColor: ACCENT_YELLOW,
+                  height: "14px",
+                  bottom: "8px",
+                }}
               ></span>
-            </span>
+            </span>{" "}
           </h2>
         </div>
 

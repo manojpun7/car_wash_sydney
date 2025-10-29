@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Truck } from "lucide-react";
 
+const PRIMARY_BLUE = "#0c55a6";
+const ACCENT_YELLOW = "#fdb813";
 
 const CarWreckersPage: React.FC = () => {
   return (
@@ -13,7 +15,7 @@ const CarWreckersPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-[#002043] text-white overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-linear-to-b from-black/50 to-black/30 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 z-10"></div>
           <Image
             src="/service/carWreckers.png"
             alt="Car Wreckers"
@@ -63,12 +65,12 @@ const CarWreckersPage: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
         <div className="absolute top-0 -left-24 w-96 h-96 bg-yellow-200/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 -right-24 w-96 h-96 bg-[#0c55a6]/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800">
-          <h2 className="text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-linear-to-r from-[#0c55a6] to-[#fdb813]">
+          <h2 className="text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#0c55a6] to-[#fdb813]">
             Why Choose Our Car Wreckers Service?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -86,7 +88,7 @@ const CarWreckersPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
                 className="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-center text-center cursor-pointer border-t-8 border-gradient-to-r from-[#0c55a6] via-[#0c55a6]/70 to-[#fdb813] transition-all"
               >
-                <div className="w-24 h-24 mb-6 flex items-center justify-center bg-linear-to-tr from-[#0c55a6]/20 to-[#fdb813]/20 rounded-full">
+                <div className="w-24 h-24 mb-6 flex items-center justify-center bg-gradient-to-tr from-[#0c55a6]/20 to-[#fdb813]/20 rounded-full">
                   <feature.icon size={40} className="text-[#0c55a6]" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
@@ -98,12 +100,12 @@ const CarWreckersPage: React.FC = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
         <div className="absolute top-0 -right-24 w-96 h-96 bg-yellow-300/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#0c55a6]/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-linear-to-r from-[#0c55a6] to-[#fdb813]">
+          <h2 className="text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-[#0c55a6] to-[#fdb813]">
             How Car Wreckers Works
           </h2>
 
@@ -121,14 +123,14 @@ const CarWreckersPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: idx * 0.3 }}
                 className="text-center flex flex-col items-center relative cursor-pointer hover:scale-105 transition-transform"
               >
-                <div className="w-24 h-24 mb-6 flex items-center justify-center bg-linear-to-tr from-[#0c55a6] to-[#fdb813] text-white rounded-full text-2xl font-bold shadow-xl">
+                <div className="w-24 h-24 mb-6 flex items-center justify-center bg-gradient-to-tr from-[#0c55a6] to-[#fdb813] text-white rounded-full text-2xl font-bold shadow-xl">
                   {item.step}
                 </div>
                 <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
                 <p className="text-gray-700">{item.desc}</p>
 
                 {idx < 2 && (
-                  <div className="hidden md:block absolute top-12 right-[-50%] w-full h-2 rounded-full shadow-md"
+                  <div className="hidden md:block absolute top-12 right-[-50%] w-[100%] h-2 rounded-full shadow-md"
                        style={{ background: 'linear-gradient(to right, #0c55a6, #fdb813)' }}>
                   </div>
                 )}

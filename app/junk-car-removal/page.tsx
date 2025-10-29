@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Truck } from "lucide-react";
 
+const PRIMARY_BLUE = "#0c55a6";
+const ACCENT_YELLOW = "#fdb813";
 
 const JunkCarRemovalPage: React.FC = () => {
   return (
@@ -13,7 +15,7 @@ const JunkCarRemovalPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-[#002043] text-white overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-linear-to-b from-black/50 to-black/30 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 z-10"></div>
           <Image
             src="/service/junkCarRemoval.png"
             alt="Junk Car Removal"
@@ -65,7 +67,7 @@ const JunkCarRemovalPage: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
         <div className="absolute top-0 -left-24 w-96 h-96 bg-yellow-200/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 -right-24 w-96 h-96 bg-[#0c55a6]/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
 
@@ -100,7 +102,7 @@ const JunkCarRemovalPage: React.FC = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
         <div className="absolute top-0 -right-24 w-96 h-96 bg-yellow-300/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#0c55a6]/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
 

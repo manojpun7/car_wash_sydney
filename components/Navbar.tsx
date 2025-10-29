@@ -1,72 +1,48 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface NavLink {
   name: string;
   href: string;
 }
 
+interface ServiceOption {
+  title: string;
+  description: string;
+  href: string;
+}
+
 const navigation: NavLink[] = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Service areas', href: '#areas' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'About', href: '/about' },
+  { name: 'Service areas', href: '/areas' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'FAQ', href: '/faq' },
 ];
 
-const NavItem: React.FC<{ item: NavLink; isActive: boolean; className: string; onClick?: () => void }> = ({
-  item,
-  isActive,
-  className,
-  onClick,
-}) => {
-  return (
-    <a
-      href={item.href}
-      className={`relative ${className} after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#0c55a6] after:transition-all after:duration-300 after:ease-out ${
-        isActive ? 'after:w-full' : 'after:w-0'
-      }`}
-      aria-current={isActive ? 'page' : undefined}
-      onClick={onClick}
-    >
-      {item.name}
-    </a>
-  );
-};
-
+const services: ServiceOption[] = [
+  { title: "Car Removal", description: "We offer 100% free car removal across Sydney, no matter the make or condition.", href: "/car-removal" },
+  { title: "Car Towing", description: "We safely remove scrap and rusted cars from your property", href: "/car-towing" },
+  { title: "Old Car Removal", description: "Sell your used car quickly without the hassle of private listings or negotiations", href: "/old-car-removal" },
+  { title: "Junk Car Removal", description: "Need a reliable tow? Our Sydney towing service.", href: "/junk-car-removal" },
+  { title: "Cash for Truck", description: "Need a reliable tow? Our Sydney towing service operates 7 days", href: "/cash-for-truck" },
+  { title: "Car Wreckers", description: "We buy and dismantle old trucks professionally.", href: "/car-wreckers" },
+];
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('#home');
-
-  useEffect(() => {
-    const sections = navigation.map((link) => document.querySelector(link.href));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      },
-      { root: null, rootMargin: '0px', threshold: 0.6 } // trigger when 60% visible
-    );
-
-    sections.forEach((section) => section && observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => section && observer.unobserve(section));
-    };
-  }, []);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const router = useRouter();
 
   const desktopLinkClasses =
-    "text-gray-700 hover:text-[#0c55a6] font-medium text-base transition duration-150 relative group py-2";
+    "text-gray-700 hover:text-[#0c55a6] font-medium text-base transition duration-150 relative group py-2 flex items-center cursor-pointer";
   const mobileLinkClasses =
-    "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0c55a6] transition duration-150";
+    "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0c55a6] transition duration-150 cursor-pointer";
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-40">
@@ -84,26 +60,64 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex md:items-center space-x-8">
-            {navigation.map((item) => (
-              <NavItem
-                key={item.name}
-                item={item}
-                isActive={activeSection === item.href}
-                className={desktopLinkClasses}
-              />
-            ))}
+          <div className="hidden md:flex md:items-center space-x-8 relative">
+            {navigation.map((item) => {
+              if (item.name === "Services") {
+                return (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <button className={desktopLinkClasses}>
+                      {item.name}
+                      <ChevronDown size={16} className="ml-1" />
+                    </button>
+
+                    {/* Dropdown */}
+                    {isServicesOpen && (
+                      <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg z-50">
+                        {services.map((service) => (
+                          <button
+                            key={service.title}
+                            onClick={() => {
+                              setIsServicesOpen(false);
+                              router.push(service.href);
+                            }}
+                            className="w-full text-left px-4 py-2 hover:bg-gray-200 cursor-pointer transition-colors duration-200 rounded-md"
+                          >
+                            <p className="font-semibold text-gray-800">{service.title}</p>
+                            <p className="text-sm text-gray-500">{service.description}</p>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => router.push(item.href)}
+                  className={desktopLinkClasses}
+                >
+                  {item.name}
+                </button>
+              );
+            })}
           </div>
 
           {/* Contact Button */}
           <div className="hidden md:block">
-            <a
-              href="#contact"
+            <button
+              onClick={() => router.push("/contact")}
               className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-4xl shadow-sm text-white bg-[#0c55a6] hover:bg-[#07468f] transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
               <Phone size={16} className="mr-2" />
               Contact
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,20 +140,64 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navigation.map((item) => (
-              <div key={item.name} onClick={() => setIsMobileMenuOpen(false)}>
-                <NavItem item={item} isActive={activeSection === item.href} className={mobileLinkClasses} />
-              </div>
-            ))}
+            {navigation.map((item) => {
+              if (item.name === "Services") {
+                return (
+                  <div key={item.name}>
+                    <button
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      className={`${mobileLinkClasses} flex justify-between items-center w-full`}
+                    >
+                      {item.name}
+                      <ChevronDown size={16} />
+                    </button>
 
-            <a
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
+                    {isServicesOpen && (
+                      <div className="ml-4 mt-2 space-y-1">
+                        {services.map((service) => (
+                          <button
+                            key={service.title}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              router.push(service.href);
+                            }}
+                            className="block px-3 py-2 rounded-md text-left text-gray-700 hover:bg-gray-200 hover:text-gray-900 cursor-pointer transition-colors duration-200"
+                          >
+                            <p className="font-semibold text-gray-800">{service.title}</p>
+                            <p className="text-sm text-gray-500">{service.description}</p>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    router.push(item.href);
+                  }}
+                  className={mobileLinkClasses}
+                >
+                  {item.name}
+                </button>
+              );
+            })}
+
+            {/* Contact Button */}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                router.push("/contact");
+              }}
               className="mt-4 inline-flex items-center justify-center w-full px-4 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-[#0c55a6] hover:bg-[#07468f] transition duration-200"
             >
               <Phone size={18} className="mr-2" />
               Contact
-            </a>
+            </button>
           </div>
         </div>
       )}

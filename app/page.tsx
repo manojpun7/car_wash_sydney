@@ -15,49 +15,32 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 export default function Home() {
   return (
     <div className="bg-zinc-50 font-medium text-black">
-      {/* Home Section */}
-      <div id="home"> 
-        <HeroSection />
-      </div>
+      <HeroSection />
 
-      {/* About Section */}
-      <div id="about">
-        <AboutUsSection />
-      </div>
 
-      {/* Services Section */}
-      <div id="services">
-        <ServicesSection />
-      </div>
+      <AboutUsSection />
+
+
+      <ServicesSection />
+
 
       <WhyChooseUsSection />
 
-      {/* Reviews/Testimonials Section */}
-      <div id="reviews"> 
-        <TestimonialsSection />
-      </div>
+      <TestimonialsSection />
+
 
       <ClientsSection />
       <HowItWorksSection />
-      
-      {/* Blog and other sections don't have nav links, but Service Area and FAQ do. */}
-      
+
+
       <BlogSection />
 
-      {/* Service Areas Section */}
-      <div id="areas"> 
-        <ServiceAreaSection />
-      </div>
+      <ServiceAreaSection />
 
-      {/* FAQ Section */}
-      <div id="faq"> 
-        <FaqSection />
-      </div>
-      
-      {/* Assuming 'Contact' button links to a Request Quote/Footer section */}
-      <div id="contact"> 
-        {/* You might place a RequestQuoteForm or Footer here */}
-      </div>
+
+      <FaqSection />
+
+
     </div>
   );
 }

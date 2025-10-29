@@ -22,7 +22,8 @@ const CarWreckersPage: React.FC = () => {
           />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between 
+                    h-[76vh] md:h-auto text-center md:text-left">
           <motion.div
             className="md:w-1/2 space-y-6"
             initial={{ opacity: 0, x: -50 }}
@@ -56,7 +57,7 @@ const CarWreckersPage: React.FC = () => {
               src="/service/carWreckers.png"
               alt="Car Wreckers"
               fill
-              className="object-cover transform transition-transform duration-500 hover:scale-105"
+                            className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
             />
           </motion.div>
         </div>

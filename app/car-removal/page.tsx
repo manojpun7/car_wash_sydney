@@ -21,7 +21,9 @@ const CarRemovalPage: React.FC = () => {
                     />
                 </div>
 
-                <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center">
+                <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 
+                    flex flex-col md:flex-row items-center justify-center md:justify-between 
+                    h-[76vh] md:h-auto text-center md:text-left">
 
                     {/* Text Content */}
                     <motion.div
@@ -58,12 +60,13 @@ const CarRemovalPage: React.FC = () => {
                             src="/service/carRemoval.jpg"
                             alt="Car Removal"
                             fill
-                            className="object-cover transform transition-transform duration-500 hover:scale-105"
+                            className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
                         />
                     </motion.div>
 
                 </div>
             </section>
+
             {/* Features Section */}
             <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
                 {/* Background decorative blobs */}

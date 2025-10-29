@@ -22,7 +22,8 @@ const JunkCarRemovalPage: React.FC = () => {
           />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between 
+                    h-[76vh] md:h-auto text-center md:text-left">
           {/* Text Content */}
           <motion.div
             className="md:w-1/2 space-y-6"
@@ -58,7 +59,7 @@ const JunkCarRemovalPage: React.FC = () => {
               src="/service/junkCarRemoval.png"
               alt="Junk Car Removal"
               fill
-              className="object-cover transform transition-transform duration-500 hover:scale-105"
+              className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
             />
           </motion.div>
         </div>
@@ -131,7 +132,7 @@ const JunkCarRemovalPage: React.FC = () => {
 
                 {idx < 2 && (
                   <div className="hidden md:block absolute top-12 right-[-50%] w-full h-2 rounded-full shadow-md"
-                       style={{ background: 'linear-gradient(to right, #0c55a6, #fdb813)' }}>
+                    style={{ background: 'linear-gradient(to right, #0c55a6, #fdb813)' }}>
                   </div>
                 )}
               </motion.div>

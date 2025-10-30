@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 const PRIMARY_BLUE = "#0c55a6";

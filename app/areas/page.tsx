@@ -4,16 +4,21 @@ import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import ServiceAreaSection from "@/components/ServiceAreaSection";
 
+declare global {
+  interface Window {
+    _leafletMap?: L.Map;
+  }
+}
+
 const Areas: React.FC = () => {
   useEffect(() => {
     const loadMap = async () => {
       const L = await import("leaflet");
       await import("leaflet/dist/leaflet.css");
 
-      // Check if map already exists
-      if ((window as any)._leafletMap) return;
+      // Prevent duplicate map
+      if (window._leafletMap) return;
 
-      // Red marker icon
       const redIcon = L.icon({
         iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
         iconSize: [32, 32],
@@ -27,7 +32,7 @@ const Areas: React.FC = () => {
         scrollWheelZoom: false,
       });
 
-      (window as any)._leafletMap = map; // store map reference globally
+      window._leafletMap = map;
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
@@ -47,7 +52,7 @@ const Areas: React.FC = () => {
         Blacktown: [-33.772, 150.908],
         Gosford: [-33.425, 151.341],
         "Northern Beaches": [-33.729, 151.300],
-        "Western Sydney": [-33.80, 150.92],
+        "Western Sydney": [-33.8, 150.92],
         "Eastern Suburbs": [-33.91, 151.25],
         "Inner West": [-33.883, 151.15],
       };

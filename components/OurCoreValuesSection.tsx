@@ -9,53 +9,35 @@ const ACCENT_YELLOW = "#fdb813";
 const HEADING_COLOR = "#1e1e1e";
 const FEATURE_BUTTON_COLOR = "#2ec4b6";
 
-const WhyChooseUsSection: React.FC = () => {
-  const features = [
-    "Instant Cash On The Spot",
-    "Free Sydney-Wide Removal",
-    "Eco-Friendly Recycling",
-    "7 Days A Week Service",
-    "Friendly Local Experts",
-    "All Vehicles Accepted",
+const OurCoreValuesSection: React.FC = () => {
+  const coreValues = [
+    "Trust & Integrity",
+    "Fast & Reliable Service",
+    "Eco-Friendly Practices",
+    "Customer First Approach",
+    "Local Expertise",
+    "All Vehicle Types Accepted",
   ];
 
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32 relative overflow-hidden ">
+    <section className="bg-white py-16 md:py-24 lg:py-32 relative overflow-hidden mb-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-10 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Image */}
+
+          {/* Left Column: Text & Core Values */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-4 flex justify-center"
-          >
-            <div className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-[566px] aspect-4/3 overflow-hidden rounded-2xl ">
-              <Image
-                src="/whyChoose.png"
-                alt="Tow truck loading a red car"
-                fill
-                className="object-contain"
-                quality={90}
-              />
-            </div>
-          </motion.div>
-
-          {/* Right Column: Text & Features */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
             className="lg:col-span-6 lg:pr-8"
           >
+            {/* Small Heading */}
             <h3
               className="text-md font-semibold uppercase tracking-widest mb-3 relative pb-2 inline-block"
               style={{ color: PRIMARY_BLUE }}
             >
-              WHY CHOOSE US
+              OUR CORE VALUES
               <span
                 className="absolute left-0 bottom-0 w-16 h-0.5 z-10"
                 style={{ backgroundColor: PRIMARY_BLUE }}
@@ -63,36 +45,37 @@ const WhyChooseUsSection: React.FC = () => {
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-200 z-0"></span>
             </h3>
 
+            {/* Main Heading */}
             <h2
               className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight mt-4 mb-6"
               style={{ color: HEADING_COLOR }}
             >
-              TRUSTED,{" "}
-             <span className="inline-block relative z-10" style={{ color: PRIMARY_BLUE }}>
-                    FAST
-                    <span
-                      className="absolute left-0 right-0 -z-10"
-                      style={{
-                        backgroundColor: ACCENT_YELLOW,
-                        height: "14px",
-                        bottom: "8px",
-                      }}
-                    ></span>
-                  </span>{" "}
-              & HASSLE-
-              <br className="hidden sm:inline" />
-              FREE
+              DRIVING EXCELLENCE IN
+              <br />
+              <span className="inline-block relative z-10" style={{ color: PRIMARY_BLUE }}>
+                VEHICLE REMOVAL
+                <span
+                  className="absolute left-0 right-0 -z-10"
+                  style={{
+                    backgroundColor: ACCENT_YELLOW,
+                    height: "14px",
+                    bottom: "8px",
+                  }}
+                ></span>
+              </span>{" "}
+              & TOWING
             </h2>
 
+            {/* Description */}
             <p className="text-gray-600 text-lg mb-8 max-w-prose text-justify">
-              At Sydney Car Removal and Towing Services, we are all about making the process
-              simple, quick, and stress-free. Whether your vehicle is old, damaged, or
-              unwanted, our friendly local team ensures you get the best value, instant cash,
-              and free pickup anywhere in Sydney — all in one smooth experience.
+              At Sydney Car Removal & Towing, our core values define everything we do. We focus on
+              providing fast, reliable, and eco-friendly services while maintaining the highest level
+              of trust and integrity. Our customer-first approach ensures every vehicle is handled with care.
             </p>
 
+            {/* Core Values */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
+              {coreValues.map((value, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -109,15 +92,36 @@ const WhyChooseUsSection: React.FC = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  {feature}
+                  {value}
                 </motion.div>
               ))}
             </div>
           </motion.div>
+
+          {/* Right Column: Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-4 flex justify-center"
+          >
+            <div className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-[566px] aspect-4/3 overflow-hidden rounded-2xl">
+              <Image
+                src="/coreValues.png"
+                alt="Tow truck handling a car"
+                fill
+                className="object-contain"  // ensures full image is visible
+                quality={90}
+              />
+            </div>
+          </motion.div>
+
+
         </div>
       </div>
     </section>
   );
 };
 
-export default WhyChooseUsSection;
+export default OurCoreValuesSection;

@@ -7,6 +7,7 @@ import { Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import OurCoreValuesSection from "@/components/OurCoreValuesSection";
 
 const CarTowingPage: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -67,139 +68,158 @@ const CarTowingPage: React.FC = () => {
           />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center
-        justify-center md:justify-between 
-                    h-[76vh] md:h-auto text-center md:text-left">
-          {/* Text Content */}
-          <motion.div
-            className="md:w-1/2 space-y-6"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-              Sydney Car Towing Services
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-200">
-              We safely remove scrap and rusted cars from your property. Fast, reliable, and professional towing services across Sydney.
-            </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 rounded-4xl bg-yellow-400 text-black font-medium hover:bg-yellow-300 transition duration-200"
-            >
-              <Phone size={18} className="mr-2" />
-              Contact Us
-            </motion.a>
-          </motion.div>
-
-          {/* Hero Image */}
-          <motion.div
-            className="md:w-1/2 relative h-80 md:h-96 mb-8 md:mb-0 overflow-hidden rounded-2xl shadow-xl"
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2 }}
-          >
-            <Image
-              src="/service/carTowing.jpg"
-              alt="Car Towing"
-              fill
-              className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
-            />
-          </motion.div>
-        </div>
+         <div
+                            className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 
+            flex flex-col md:flex-row items-center justify-center md:justify-between 
+            h-[60vh] sm:h-[70vh] lg:h-screen text-center md:text-left"
+                        >
+        
+                            {/* Text Content */}
+                            <motion.div
+                                className="md:w-1/2 space-y-6 flex flex-col justify-center items-center md:items-start"
+                                initial={{ opacity: 0, y: -40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1 }}
+                            >
+                                <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
+                                    Sydney Car Removal Services
+                                </h1>
+                                <p className="text-lg sm:text-xl text-gray-200 max-w-lg">
+                                    We offer 100% free car removal across Sydney, no matter the make
+                                    or condition. Quick, safe, and hassle-free.
+                                </p>
+                                <motion.a
+                                    href="#contact"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="inline-flex items-center px-6 py-3 rounded-4xl bg-yellow-400 text-black font-medium hover:bg-yellow-300 transition "
+                                >
+                                    {/* Vibrating Phone Icon */}
+                                    <motion.div
+                                        className="mr-2"
+                                        animate={{ x: [0, -1.5, 1.5, -1, 1, 0] }}
+                                        transition={{ repeat: Infinity, repeatDelay: 2, duration: 0.3 }}
+                                    >
+                                        <Phone size={18} />
+                                    </motion.div>
+                                    Contact Us
+                                </motion.a>
+        
+        
+                            </motion.div>
+                            {/* Hero Image */}
+                            <motion.div
+                                className="md:w-1/2 relative h-80 md:h-96 mb-8 md:mb-0 overflow-hidden rounded-2xl shadow-xl"
+                                initial={{ scale: 0.95, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 1.2 }}
+                            >
+                                <Image
+                                    src="/service/carTowing.jpg"
+                                    alt="Old Car Removal"
+                                    fill
+                                    className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
+                                />
+                            </motion.div>
+                        </div>
       </section>
 
       <WhyChooseUsSection />
+      <OurCoreValuesSection/>
 
       <HowItWorksSection />
-    {/* Other Services Carousel */}
-<section className="py-20 bg-white relative overflow-hidden">
-  <h2 className="text-4xl font-bold text-center mb-14 text-black">
-    Explore Our Other Services
-  </h2>
 
-  <div className="relative w-full overflow-hidden">
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: { staggerChildren: 0.15, duration: 0.6 },
-        },
-      }}
-      className="flex justify-center flex-wrap gap-6 px-6"
-    >
-      {services.map((service, idx) => (
-        <motion.div
-          key={idx}
-          variants={{
-            hidden: { opacity: 0, scale: 0.95 },
-            visible: { opacity: 1, scale: 1 },
-          }}
-          whileHover={{ scale: 1.04 }}
-          transition={{ duration: 0.4 }}
-          onClick={() => router.push(service.link)}
-          className="min-w-[260px] sm:min-w-[300px] max-w-[320px] cursor-pointer 
-            bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 
-            hover:border-[#fdb813] hover:shadow-xl transition-all duration-300"
-        >
-          <div className="relative h-48 w-full overflow-hidden">
-            <Image
-              src={service.img}
-              alt={service.title}
-              fill
-              className="object-cover transform transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-          <div className="p-6 text-center">
-            <h3 className="text-xl font-semibold mb-2 text-black">
-              {service.title}
-            </h3>
-            <p className="text-gray-600 text-sm">{service.desc}</p>
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</section>
+      {/* Other Services Section with Sticky Left Column and Animations */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 
-      {/* Contact CTA Section */}
-      <section id="contact" className="py-20 bg-[#0c55a6] text-white">
-        <div className="max-w-3xl mx-auto text-center px-4">
-          <motion.h2
-            className="text-3xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
+          {/* Left Column (Sticky) */}
+          <motion.div
+            className="md:col-span-1"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
           >
-            Need a Tow? Contact Us Today
-          </motion.h2>
-          <motion.p
-            className="mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Our towing service is available 24/7. Call now and get your vehicle towed safely.
-          </motion.p>
-          <motion.a
-            href="tel:+0402887766"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-6 py-3 rounded-4xl bg-yellow-400 text-black font-medium hover:bg-yellow-300 transition duration-200"
-          >
-            <Phone size={18} className="mr-2" />
-            Call Now
-          </motion.a>
+            <div className="md:sticky md:top-28 flex flex-col justify-start space-y-6">
+              <h2 className="text-4xl font-semibold text-black uppercase leading-relaxed">
+                Explore Our<br />Other Services
+              </h2>
+              <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+                We offer a range of professional and customizable car services
+                designed to meet your unique needs and keep your vehicle in top condition.
+              </p>
+
+              {/* New Section: Ready to Get Service */}
+              <motion.div
+                className="flex items-center text-[#0c55a6] font-semibold cursor-pointer space-x-2"
+                animate={{ x: [0, -3, 3, -3, 3, 0] }}
+                transition={{ repeat: Infinity, repeatDelay: 2, duration: 0.8 }}
+              >
+                <Phone size={20} />
+                <span>Ready to get our service?</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+
+          {/* Right Column (Animated Scrollable Services) */}
+          <div className="md:col-span-2 flex flex-col space-y-20">
+            {services.map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: idx * 0.15 }}
+                className="flex flex-col md:flex-row items-start md:items-center gap-8 group"
+              >
+                {/* Image */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative w-full md:w-1/3 h-60 rounded-2xl overflow-hidden shadow-md"
+                >
+                  <Image
+                    src={service.img}
+                    alt={service.title}
+                    fill
+                    className="object-cover transform transition-transform duration-500 hover:scale-110 cursor-pointer"
+                    onClick={() => router.push(service.link)}
+                  />
+                </motion.div>
+
+                {/* Text Content */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="flex-1 flex flex-col h-60 justify-between"
+                >
+                  <div>
+                    <h3 className="text-2xl font-semibold text-black uppercase mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => router.push(service.link)}
+                    className="text-[#0c55a6] text-sm uppercase font-semibold tracking-wide relative w-max after:content-[''] after:block after:h-0.5 after:bg-[#0c55a6] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full"
+                  >
+                    View Details →
+                  </button>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </section>
+
 
     </div>
   );

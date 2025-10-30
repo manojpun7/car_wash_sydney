@@ -1,14 +1,17 @@
-import AboutUsSection from "@/components/AboutUsSection";
+import About from "@/components/About";
 import BlogSection from "@/components/BlogSection";
 import ClientsSection from "@/components/ClientsSection";
+import OurCoreValuesSection from "@/components/OurCoreValuesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 const AboutPage: React.FC = () => {
     return (
         <>
-            <AboutUsSection />
+            <About />
+
             <TestimonialsSection />
             <ClientsSection />
+            <OurCoreValuesSection />
             <BlogSection />
         </>
     )

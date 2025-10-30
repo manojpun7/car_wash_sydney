@@ -1,13 +1,58 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Truck } from "lucide-react";
+import { useRouter } from "next/navigation";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 
 
 
 const OldCarRemovalPage: React.FC = () => {
+    const [current, setCurrent] = useState(0);
+    const router = useRouter();
+    // Auto-slide every 3.5 seconds
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrent((prev) => (prev + 1) % services.length);
+      }, 3500);
+      return () => clearInterval(interval);
+    }, []);
+  
+    const services = [
+      {
+        title: "Car Removal",
+        desc: "Fast and safe car towing service across Sydney at competitive rates.",
+        img: "/service/carRemoval.jpg",
+        link: "/car-removal",
+      },
+      {
+        title: "Cash for Trucks",
+        desc: "We pay top cash for trucks of all models and conditions.",
+        img: "/service/cashTruck.jpg",
+        link: "/cash-for-truck",
+      },
+      {
+        title: "Car Towing",
+        desc: "Free pickup and instant cash for your old or unwanted vehicles.",
+        img: "/service/carTowing.jpg",
+        link: "/car-towing",
+      },
+      {
+        title: "Car Wreckers",
+        desc: "Eco-friendly car dismantling and recycling services in Sydney.",
+        img: "/service/carWreckers.png",
+        link: "/car-wreckers",
+      },
+      {
+        title: "Junk Car Removal",
+        desc: "Quick and hassle-free removal of junk or damaged cars for free.",
+        img: "/service/junkCarRemoval.png",
+        link: "/junk-car-removal",
+      },
+    ];
   return (
     <div className="w-full bg-gray-50">
 
@@ -66,81 +111,63 @@ const OldCarRemovalPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
-        <div className="absolute top-0 -left-24 w-96 h-96 bg-yellow-200/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-0 -right-24 w-96 h-96 bg-[#0c55a6]/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
+    <WhyChooseUsSection />
+    <HowItWorksSection />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800">
-          <h2 className="text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-linear-to-r from-[#0c55a6] to-[#fdb813]">
-            Why Choose Our Old Car Removal Service?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { icon: Truck, title: "Quick Sale", desc: "We buy your old car instantly, avoiding private listings and long waits." },
-              { icon: Truck, title: "Free Pickup", desc: "We come to your location and remove your old car at no cost." },
-              { icon: Truck, title: "Cash on Spot", desc: "Receive instant payment for your old vehicle on pickup." },
-            ].map((feature, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ scale: 1.08, boxShadow: "0px 25px 50px rgba(12,85,166,0.2)" }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-center text-center cursor-pointer border-t-8 border-linear-to-r from-[#0c55a6] via-[#0c55a6]/70 to-[#fdb813] transition-all"
-              >
-                <div className="w-24 h-24 mb-6 flex items-center justify-center bg-linear-to-tr from-[#0c55a6]/20 to-[#fdb813]/20 rounded-full">
-                  <feature.icon size={40} className="text-[#0c55a6]" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-gray-700">{feature.desc}</p>
-              </motion.div>
-            ))}
+   {/* Other Services Carousel */}
+<section className="py-20 bg-white relative overflow-hidden">
+  <h2 className="text-4xl font-bold text-center mb-14 text-black">
+    Explore Our Other Services
+  </h2>
+
+  <div className="relative w-full overflow-hidden">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { staggerChildren: 0.15, duration: 0.6 },
+        },
+      }}
+      className="flex justify-center flex-wrap gap-6 px-6"
+    >
+      {services.map((service, idx) => (
+        <motion.div
+          key={idx}
+          variants={{
+            hidden: { opacity: 0, scale: 0.95 },
+            visible: { opacity: 1, scale: 1 },
+          }}
+          whileHover={{ scale: 1.04 }}
+          transition={{ duration: 0.4 }}
+          onClick={() => router.push(service.link)}
+          className="min-w-[260px] sm:min-w-[300px] max-w-[320px] cursor-pointer 
+            bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 
+            hover:border-[#fdb813] hover:shadow-xl transition-all duration-300"
+        >
+          <div className="relative h-48 w-full overflow-hidden">
+            <Image
+              src={service.img}
+              alt={service.title}
+              fill
+              className="object-cover transform transition-transform duration-500 hover:scale-105"
+            />
           </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-gray-100 relative overflow-hidden">
-        <div className="absolute top-0 -right-24 w-96 h-96 bg-yellow-300/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#0c55a6]/20 rounded-full filter blur-3xl animate-pulse-slow"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-linear-to-r from-[#0c55a6] to-[#fdb813]">
-            How Old Car Removal Works
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-20 relative">
-            {[
-              { step: 1, title: "Request Pickup", desc: "Call us or fill out the form to schedule pickup." },
-              { step: 2, title: "We Arrive Fast", desc: "Our team arrives to inspect and load your vehicle safely." },
-              { step: 3, title: "Get Paid Instantly", desc: "Receive cash on the spot as we remove your old car." },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: idx * 0.3 }}
-                className="text-center flex flex-col items-center relative cursor-pointer hover:scale-105 transition-transform"
-              >
-                <div className="w-24 h-24 mb-6 flex items-center justify-center bg-linear-to-tr from-[#0c55a6] to-[#fdb813] text-white rounded-full text-2xl font-bold shadow-xl">
-                  {item.step}
-                </div>
-                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-700">{item.desc}</p>
-
-                {idx < 2 && (
-                  <div className="hidden md:block absolute top-12 right-[-50%] w-full h-2 rounded-full shadow-md"
-                    style={{ background: 'linear-gradient(to right, #0c55a6, #fdb813)' }}>
-                  </div>
-                )}
-              </motion.div>
-            ))}
+          <div className="p-6 text-center">
+            <h3 className="text-xl font-semibold mb-2 text-black">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 text-sm">{service.desc}</p>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Contact CTA Section */}
       <section id="contact" className="py-20 bg-[#0c55a6] text-white">

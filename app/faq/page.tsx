@@ -7,8 +7,7 @@ import BlogSection from "@/components/BlogSection";
 
 const PRIMARY_BLUE = "#0A1931";
 const SECONDARY_BLUE = "#044E9E";
-const ACCENT_YELLOW = "#fdb813";
-const TEXT_COLOR = "#ffffff";
+
 
 interface FaqItem {
   question: string;

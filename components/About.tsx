@@ -47,13 +47,18 @@ const About: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           className="w-full flex flex-col lg:flex-row items-start gap-10"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1 }}
         >
           {/* Left Content (Text + Cards) */}
-          <div className="flex-1">
+          <motion.div
+            className="flex-1"
+            initial={{ x: -200, opacity: 0 }} // slide in from left
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ type: "spring", stiffness: 50, damping: 20, duration: 0.8 }}
+          >
             {/* Section Title */}
             <h3
               className="text-md font-semibold uppercase tracking-widest mb-8 relative pb-2 inline-block"
@@ -75,9 +80,6 @@ const About: React.FC = () => {
               WE HAVE{" "}
               <span className="inline-block relative z-10" style={{ color: PRIMARY_BLUE }}>
                 20 YEARS
-                <span
-                  className="absolute left-0 right-0 -z-10"
-                ></span>
               </span>{" "}
               OF EXPERIENCE
               <br />
@@ -94,7 +96,7 @@ const About: React.FC = () => {
             </p>
 
             {/* Service Cards */}
-            <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-5 ">
+            <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-5">
               <ServiceCard
                 title="24/7 Towing Service"
                 icon={Truck}
@@ -114,16 +116,16 @@ const About: React.FC = () => {
                 iconColorClass="text-[#d88907]"
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Image with slide-in animation only */}
+          {/* Right Image with slide-in animation */}
           <motion.div
             className="flex-[0.45] hidden md:block lg:block relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden"
-            initial={{ x: 200, opacity: 0 }} // Start off to the right and invisible
+            initial={{ x: 200, opacity: 0 }} // Start off to the right
             animate={{ x: 0, opacity: 1 }} // Slide in only
             transition={{
-              x: { type: "spring", stiffness: 50, damping: 20, duration: 0.6 }, // Adjust duration as needed
-              opacity: { duration: 0.6 }, // Fade in
+              x: { type: "spring", stiffness: 50, damping: 20, duration: 0.6 },
+              opacity: { duration: 0.6 },
             }}
           >
             <Image
@@ -134,8 +136,6 @@ const About: React.FC = () => {
               priority
             />
           </motion.div>
-
-
         </motion.div>
       </div>
     </section>

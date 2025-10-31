@@ -6,9 +6,7 @@ import { motion } from "framer-motion";
 const PRIMARY_BLUE = "#044E9E";
 const HEADING_COLOR = "#1e1e1e";
 
-
 const About: React.FC = () => {
-    // Form state
     const [formData, setFormData] = useState({
         fullName: "",
         phone: "",
@@ -96,9 +94,6 @@ const About: React.FC = () => {
                             GET IN{" "}
                             <span className="relative z-10 text-primary-blue" style={{ color: PRIMARY_BLUE }}>
                                 TOUCH
-                                <span
-                                    className="absolute left-0 right-0 -z-10"
-                                ></span>
                             </span>{" "}
                             WITH US
                         </h1>
@@ -145,7 +140,7 @@ const About: React.FC = () => {
                                     placeholder="Full Name"
                                     value={formData.fullName}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
                                     required
                                 />
                                 <input
@@ -154,7 +149,7 @@ const About: React.FC = () => {
                                     placeholder="Your Phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
                                     required
                                 />
 
@@ -165,7 +160,7 @@ const About: React.FC = () => {
                                         placeholder="Moving From"
                                         value={formData.movingFrom}
                                         onChange={handleChange}
-                                        className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
+                                        className="px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
                                     />
                                     <input
                                         type="text"
@@ -173,7 +168,7 @@ const About: React.FC = () => {
                                         placeholder="Moving To"
                                         value={formData.movingTo}
                                         onChange={handleChange}
-                                        className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
+                                        className="px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-[#0c55a6] focus:border-gray-700 placeholder-gray-800 placeholder:font-light"
                                     />
                                 </div>
 
@@ -183,7 +178,7 @@ const About: React.FC = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={4}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#0c55a6] focus:border-gray-700 resize-none placeholder-gray-800 placeholder:font-light"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-[#0c55a6] focus:border-gray-700 resize-none placeholder-gray-800 placeholder:font-light"
                                 ></textarea>
                             </div>
 

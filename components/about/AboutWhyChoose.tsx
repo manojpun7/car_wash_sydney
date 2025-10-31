@@ -28,9 +28,6 @@ const AboutWhyChoose: React.FC = () => {
       const featuresRect = featuresRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // When top of features reaches top of viewport
-      const start = 0; // featuresRect.top <= 0
-      const end = featuresRect.height - windowHeight; // total scrollable distance for features
 
       let progress = (windowHeight - featuresRect.top) / (featuresRect.height);
       progress = Math.min(Math.max(progress, 0), 1);
@@ -44,7 +41,7 @@ const AboutWhyChoose: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32" ref={sectionRef}>
+    <section className="bg-[#F0EFEE] py-16 md:py-24 lg:py-32" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
 

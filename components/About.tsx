@@ -78,7 +78,6 @@ const About: React.FC = () => {
                 20 YEARS
                 <span
                   className="absolute left-0 right-0 -z-10"
-                  style={{ backgroundColor: ACCENT_YELLOW, height: "14px", bottom: "8px" }}
                 ></span>
               </span>{" "}
               OF EXPERIENCE

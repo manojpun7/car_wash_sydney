@@ -118,11 +118,6 @@ const TestimonialsSection: React.FC = () => {
                   CLIENT
                   <span
                     className="absolute left-0 right-0 -z-10"
-                    style={{
-                      backgroundColor: SECONDARY_BLUE,
-                      height: "14px",
-                      bottom: "8px",
-                    }}
                   ></span>
                 </span>{" "}
                 SAYS

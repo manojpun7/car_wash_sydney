@@ -77,7 +77,7 @@ const AlternatingReviewPage: React.FC = () => {
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl" style={{ color: TEXT_COLOR }}>
             WHAT OUR <span className="inline-block relative z-10" style={{ color: SECONDARY_BLUE }}>
               CLIENT
-              <span className="absolute left-0 right-0 -z-10" style={{ backgroundColor: ACCENT_YELLOW, height: "15px", bottom: "1px" }}></span>
+              <span className="absolute left-0 right-0 -z-10" ></span>
             </span> SAY
           </h2>
           <p className="mt-4 text-xl" style={{ color: SUBTLE_GRAY }}>

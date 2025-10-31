@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const PRIMARY_BLUE = "#0c55a6";
-const ACCENT_YELLOW = "#fdb813";
 const HEADING_COLOR = "#1e1e1e";
 
 const blogPosts = [
@@ -89,7 +88,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
 };
 
 const BlogSection: React.FC = () => {
-  const HEADING_BLUE = PRIMARY_BLUE;
 
   return (
     <section id="blogs" className="py-20 md:py-28 bg-gray-50">
@@ -113,11 +111,7 @@ const BlogSection: React.FC = () => {
 
               <span
                 className="absolute left-0 right-0 -z-10"
-                style={{
-                  backgroundColor: ACCENT_YELLOW,
-                  height: "14px",
-                  bottom: "8px",
-                }}
+                
               ></span>
             </span>{" "}
           </h2>

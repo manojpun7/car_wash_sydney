@@ -144,11 +144,7 @@ const CarRemovalPage: React.FC = () => {
 
                                     <span
                                         className="absolute left-0 right-0 -z-10"
-                                        style={{
-                                            backgroundColor: ACCENT_YELLOW,
-                                            height: "10px",
-                                            bottom: "10px",
-                                        }}
+                                       
                                     ></span>
                                 </span>
                             </h2>

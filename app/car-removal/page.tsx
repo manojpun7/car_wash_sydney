@@ -59,68 +59,68 @@ const CarRemovalPage: React.FC = () => {
     return (
         <div className="w-full bg-gray-50">
             {/* Hero Section */}
-<section className="relative bg-[#002043] text-white overflow-hidden min-h-screen flex items-center">
-  <div className="absolute inset-0">
-    <div className="absolute inset-0 bg-black/40 z-10"></div>
-    <Image
-      src="/service/carRemoval.jpg"
-      alt="Car Removal"
-      fill
-      className="object-cover z-0"
-    />
-  </div>
+            <section className="relative bg-[#002043] text-white overflow-hidden min-h-screen flex items-center">
+                <div className="absolute inset-0">
+                    <div className="absolute inset-0 bg-black/40 z-10"></div>
+                    <Image
+                        src="/service/carRemoval.jpg"
+                        alt="Car Removal"
+                        fill
+                        className="object-cover z-0"
+                    />
+                </div>
 
-  <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center w-full">
-    {/* Text Content */}
-    <motion.div
-      className="md:w-1/2 space-y-6 flex flex-col justify-center items-center md:items-start"
-      initial={{ opacity: 0, y: -40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-    >
-      <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
-        Sydney Car Removal Services
-      </h1>
-      <p className="text-lg sm:text-xl text-gray-200 max-w-lg">
-        We offer 100% free car removal across Sydney, no matter the make or condition.
-      </p>
-      <motion.a
-        href="#contact"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="inline-flex items-center px-6 py-3 rounded-4xl bg-yellow-400 text-black font-medium hover:bg-yellow-300 transition"
-      >
-        <motion.div
-          className="mr-2"
-          animate={{ x: [0, -1.5, 1.5, -1, 1, 0] }}
-          transition={{ repeat: Infinity, repeatDelay: 2, duration: 0.3 }}
-        >
-          <Phone size={18} />
-        </motion.div>
-        Contact Us
-      </motion.a>
-    </motion.div>
+                <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center w-full">
+                    {/* Text Content */}
+                    <motion.div
+                        className="md:w-1/2 space-y-6 flex flex-col justify-center items-center md:items-start"
+                        initial={{ opacity: 0, y: -40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
+                            Sydney Car Removal Services
+                        </h1>
+                        <p className="text-lg sm:text-xl text-gray-200 max-w-lg">
+                            We offer 100% free car removal across Sydney, no matter the make or condition.
+                        </p>
+                        <motion.a
+                            href="#contact"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="inline-flex items-center px-6 py-3 rounded-4xl bg-yellow-400 text-black font-medium hover:bg-yellow-300 transition"
+                        >
+                            <motion.div
+                                className="mr-2"
+                                animate={{ x: [0, -1.5, 1.5, -1, 1, 0] }}
+                                transition={{ repeat: Infinity, repeatDelay: 2, duration: 0.3 }}
+                            >
+                                <Phone size={18} />
+                            </motion.div>
+                            Contact Us
+                        </motion.a>
+                    </motion.div>
 
-    {/* Hero Image */}
-    <motion.div
-      className="md:w-1/2 relative h-80 md:h-96 mb-8 md:mb-0 overflow-hidden rounded-2xl shadow-xl"
-      initial={{ scale: 0.95, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.2 }}
-    >
-      <Image
-        src="/service/carRemoval.jpg"
-        alt="Old Car Removal"
-        fill
-        className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
-      />
-    </motion.div>
-  </div>
-</section>
+                    {/* Hero Image */}
+                    <motion.div
+                        className="md:w-1/2 relative h-80 md:h-96 mb-8 md:mb-0 overflow-hidden rounded-2xl shadow-xl"
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1.2 }}
+                    >
+                        <Image
+                            src="/service/carRemoval.jpg"
+                            alt="Old Car Removal"
+                            fill
+                            className="object-cover transform transition-transform duration-500 hover:scale-105 opacity-70"
+                        />
+                    </motion.div>
+                </div>
+            </section>
 
 
             <WhyChooseUsSection />
-            <OurCoreValuesSection/>
+            <OurCoreValuesSection />
 
             <HowItWorksSection />
 
@@ -152,7 +152,7 @@ const CarRemovalPage: React.FC = () => {
                                     ></span>
                                 </span>
                             </h2>
-                            <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+                            <p className="text-gray-600 text-lg mb-8 max-w-prose text-justify">
                                 We offer a range of professional and customizable car services
                                 designed to meet your unique needs and keep your vehicle in top condition.
                             </p>
@@ -208,7 +208,7 @@ const CarRemovalPage: React.FC = () => {
                                         <h3 className="text-2xl font-semibold text-black uppercase mb-2">
                                             {service.title}
                                         </h3>
-                                        <p className="text-gray-700 text-sm leading-relaxed">
+                                        <p className="text-gray-600 text-lg mb-8 max-w-prose text-justify">
                                             {service.desc}
                                         </p>
                                     </div>

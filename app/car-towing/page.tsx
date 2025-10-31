@@ -145,7 +145,7 @@ const CarTowingPage: React.FC = () => {
               <h2 className="text-4xl font-semibold text-black uppercase leading-relaxed">
                 Explore Our<br />Other Services
               </h2>
-              <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+            <p className="text-gray-600 text-lg mb-8 max-w-prose text-justify">
                 We offer a range of professional and customizable car services
                 designed to meet your unique needs and keep your vehicle in top condition.
               </p>
@@ -201,7 +201,7 @@ const CarTowingPage: React.FC = () => {
                     <h3 className="text-2xl font-semibold text-black uppercase mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-lg mb-8 max-w-prose text-justify">
                       {service.desc}
                     </p>
                   </div>

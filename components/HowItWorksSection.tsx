@@ -49,8 +49,8 @@ const Step: React.FC<StepProps> = ({ step, isLast, index }) => {
 
       {/* Content */}
       <div className="text-center mt-2 max-w-[200px]">
-        <h4 className="text-lg font-bold uppercase mb-2" style={{ color: ACCENT_YELLOW }}>{step.title}</h4>
-        <p className="text-sm leading-relaxed" style={{ color: HEADING_COLOR }}>{step.description}</p>
+        <h4 className="text-xl font-bold uppercase mb-2" style={{ color: ACCENT_YELLOW }}>{step.title}</h4>
+        <p className="text-lg leading-relaxed" style={{ color: HEADING_COLOR }}>{step.description}</p>
       </div>
 
       {/* Connector */}

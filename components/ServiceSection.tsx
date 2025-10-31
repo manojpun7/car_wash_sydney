@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
       transition-all duration-300 ease-in-out
       ${isHighlighted
         ? 'transform scale-105 shadow-xl'
-        : 'hover:bg-[#d1b78380] hover:shadow-xl' // 50% opacity on hover
+        : 'hover:bg-[#FEC130] hover:shadow-xl' // 50% opacity on hover
       }
     `}
   >

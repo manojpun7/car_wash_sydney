@@ -3,9 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import vector1 from '../public/service/vector1.svg';
-import vector2 from '../public/service/vector2.svg';
-import vector6 from '../public/service/vector6.svg';
 
 const PRIMARY_BLUE = '#0c55a6';
 
@@ -84,21 +81,30 @@ const ServicesSection: React.FC = () => {
   const ICON_HEIGHT = 71.875;
 
   const Vector1Icon = (
-    <Image src={vector1} alt="Car Removal Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
+    <Image src='/service/car1.png' alt="Car Removal Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
   );
   const Vector2Icon = (
-    <Image src={vector2} alt="Car Towing Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
+    <Image src='/service/car2.png' alt="Car Towing Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
+  );
+  const Vector3Icon = (
+    <Image src='/service/car3.png' alt="Car Towing Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
+  );
+  const Vector4Icon = (
+    <Image src='/service/car4.png' alt="Used Car Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
+  );
+  const Vector5Icon = (
+    <Image src="/service/car5.png" alt="Used Car Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
   );
   const Vector6Icon = (
-    <Image src={vector6} alt="Used Car Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
+    <Image src='/service/car6.png' alt="Used Car Icon" width={ICON_WIDTH} height={ICON_HEIGHT} className="text-[#fdb813]" />
   );
 
   const servicesData = [
     { title: "Car Removal", description: "We offer 100% free car removal across Sydney...", icon: Vector1Icon, animationDirection: "left" },
     { title: "Car Towing", description: "We safely remove scrap and rusted cars...", icon: Vector2Icon, animationDirection: "right" },
-    { title: "Old Car Removal", description: "Sell your used car quickly without hassle...", icon: Vector1Icon, animationDirection: "left" },
-    { title: "Junk Car Removal", description: "Need a reliable tow? Our Sydney towing service...", icon: Vector1Icon, animationDirection: "right" },
-    { title: "Unwanted Cars", description: "Need a reliable tow? Our Sydney towing service...", icon: Vector1Icon, animationDirection: "left" },
+    { title: "Old Car Removal", description: "Sell your used car quickly without hassle...", icon: Vector3Icon, animationDirection: "left" },
+    { title: "Junk Car Removal", description: "Need a reliable tow? Our Sydney towing service...", icon: Vector4Icon, animationDirection: "right" },
+    { title: "Unwanted Cars", description: "Need a reliable tow? Our Sydney towing service...", icon: Vector5Icon, animationDirection: "left" },
     { title: "Used Car", description: "We buy and dismantle old trucks professionally...", icon: Vector6Icon, animationDirection: "right" },
   ];
 

@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import RequestQuoteForm from "./RequestQuoteForm";
 
 const PRIMARY_BLUE = "#044E9E";
-const ACCENT_YELLOW = "#fdb813";
 const HEADING_COLOR = "#1e1e1e";
 
 interface ServiceCardProps {

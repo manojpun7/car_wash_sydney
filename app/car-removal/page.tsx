@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import OurCoreValuesSection from "@/components/OurCoreValuesSection";
-const ACCENT_YELLOW = "#fdb813";
 
 
 const services = [

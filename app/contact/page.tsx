@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 const PRIMARY_BLUE = "#044E9E";
 const HEADING_COLOR = "#1e1e1e";
-const ACCENT_YELLOW = "#fdb813";
 
 
 const About: React.FC = () => {

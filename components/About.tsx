@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const PRIMARY_BLUE = "#044E9E";
-const ACCENT_YELLOW = "#fdb813";
 const HEADING_COLOR = "#1e1e1e";
 
 interface ServiceCardProps {
@@ -22,7 +21,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   bgColorClass,
   iconColorClass,
 }) => (
-  <div className="flex flex-col items-center p-4 rounded-xl shadow-md border border-gray-100 bg-white min-h-[100px] transition-shadow duration-300 hover:shadow-2xl">
+  <div className="flex flex-col items-center p-4 mt-10 rounded-xl shadow-md border border-gray-100 bg-white min-h-[100px] transition-shadow duration-300 hover:shadow-2xl">
     <div className={`p-4 rounded-xl mb-3 ${bgColorClass} ${iconColorClass} shadow-sm`}>
       <Icon size={30} />
     </div>
@@ -95,7 +94,7 @@ const About: React.FC = () => {
             </p>
 
             {/* Service Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-5 ">
               <ServiceCard
                 title="24/7 Towing Service"
                 icon={Truck}
@@ -117,24 +116,24 @@ const About: React.FC = () => {
             </div>
           </div>
 
-{/* Right Image with slide-in animation only */}
-<motion.div
-  className="flex-[0.45] hidden md:block lg:block relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden"
-  initial={{ x: 200, opacity: 0 }} // Start off to the right and invisible
-  animate={{ x: 0, opacity: 1 }} // Slide in only
-  transition={{
-    x: { type: "spring", stiffness: 50, damping: 20, duration: 0.6 }, // Adjust duration as needed
-    opacity: { duration: 0.6 }, // Fade in
-  }}
->
-  <Image
-    src="/truck.png"
-    alt="Truck"
-    fill
-    className="object-contain scale-110 translate-x-1 translate-y-1"
-    priority
-  />
-</motion.div>
+          {/* Right Image with slide-in animation only */}
+          <motion.div
+            className="flex-[0.45] hidden md:block lg:block relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden"
+            initial={{ x: 200, opacity: 0 }} // Start off to the right and invisible
+            animate={{ x: 0, opacity: 1 }} // Slide in only
+            transition={{
+              x: { type: "spring", stiffness: 50, damping: 20, duration: 0.6 }, // Adjust duration as needed
+              opacity: { duration: 0.6 }, // Fade in
+            }}
+          >
+            <Image
+              src="/truck.png"
+              alt="Truck"
+              fill
+              className="object-contain scale-110 translate-x-1 translate-y-1"
+              priority
+            />
+          </motion.div>
 
 
         </motion.div>

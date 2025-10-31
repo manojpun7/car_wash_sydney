@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const PRIMARY_BLUE = "#0c55a6";
-const ACCENT_YELLOW = "#fdb813";
+// const ACCENT_YELLOW = "#fdb813";
 const HEADING_COLOR = "#1e1e1e";
 const FEATURE_BUTTON_COLOR = "#2ec4b6";
 

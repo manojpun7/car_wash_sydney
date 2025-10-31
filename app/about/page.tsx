@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import AboutWhyChoose from "@/components/about/AboutWhyChoose";
 import BlogSection from "@/components/BlogSection";
 import ClientsSection from "@/components/ClientsSection";
 import OurCoreValuesSection from "@/components/OurCoreValuesSection";
@@ -8,10 +9,10 @@ const AboutPage: React.FC = () => {
     return (
         <>
             <About />
-
+            <AboutWhyChoose />
             <TestimonialsSection />
-            <ClientsSection />
             <OurCoreValuesSection />
+            <ClientsSection />
             <BlogSection />
         </>
     )

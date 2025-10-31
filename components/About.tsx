@@ -118,16 +118,26 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="flex-[0.45] hidden md:block lg:block relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden">
-            <Image
-              src="/truck.png"
-              alt="Truck"
-              fill
-              className="object-contain scale-110 translate-x-1 translate-y-1"
-              priority
-            />
-          </div>
+{/* Right Image with slide-in animation only */}
+<motion.div
+  className="flex-[0.45] hidden md:block lg:block relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden"
+  initial={{ x: 200, opacity: 0 }} // Start off to the right and invisible
+  animate={{ x: 0, opacity: 1 }} // Slide in only
+  transition={{
+    x: { type: "spring", stiffness: 50, damping: 20, duration: 0.6 }, // Adjust duration as needed
+    opacity: { duration: 0.6 }, // Fade in
+  }}
+>
+  <Image
+    src="/truck.png"
+    alt="Truck"
+    fill
+    className="object-contain scale-110 translate-x-1 translate-y-1"
+    priority
+  />
+</motion.div>
+
+
         </motion.div>
       </div>
     </section>
